@@ -1,0 +1,7 @@
+library(faraway)
+library(pls)
+set.seed(123)
+plsmod <- plsr(fat ~ ., data=meatspec[1:172,], ncomp=50,validation="CV")
+coefplot(plsmod, ncomp=4, xlab="Frequency")
+plsCV <- RMSEP(plsmod, estimate="CV")
+plot(plsCV,main="")
